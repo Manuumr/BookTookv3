@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BookTookv3</string>
+    <string name="hint_usuario">usuario</string>
+    <string name="mensaje_bienvenida">Bienvenido a BookTook :)</string>
+    <string name="btn_creditos">Creditos</string>
+    <string name="mensaje_credit">Usuario estás usando la versión beta de booktook</string>
+    <string name="mensaje_descripcion">Booktook es una red social para compaginar la pasión por los libros y el crear contactos.</string>
+    <string name="btn_contacto">Contactar desarrollador</string>
+</resources>
