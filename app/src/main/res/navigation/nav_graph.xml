@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/feedFragment">
+
+    <fragment
+        android:id="@+id/feedFragment"
+        android:name="com.example.booktookv3.FeedFragment"
+        android:label="@string/nav_feed" />
+
+    <fragment
+        android:id="@+id/libraryFragment"
+        android:name="com.example.booktookv3.LibraryFragment"
+        android:label="@string/nav_library" />
+
+    <fragment
+        android:id="@+id/socialFragment"
+        android:name="com.example.booktookv3.SocialFragment"
+        android:label="@string/nav_social" />
+
+</navigation>
