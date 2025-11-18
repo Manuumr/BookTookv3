@@ -6,4 +6,9 @@
     <string name="mensaje_credit">Usuario estás usando la versión beta de booktook</string>
     <string name="mensaje_descripcion">Booktook es una red social para compaginar la pasión por los libros y el crear contactos.</string>
     <string name="btn_contacto">Contactar desarrollador</string>
+    <string name="nav_feed">feed</string>
+    <string name="nav_social">Aqui iran las notificaciones/Social</string>
+    <string name="nav_library">Aqui ira la Libreria</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Aqui irá el Feed</string>
 </resources>
