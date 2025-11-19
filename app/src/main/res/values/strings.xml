@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">BookTookv3</string>
-    <string name="hint_usuario">usuario</string>
+    <string name="hint_usuario">Usuario</string>
+    <string name="hint_contrasena">Contraseña</string>
     <string name="mensaje_bienvenida">Bienvenido a BookTook :)</string>
     <string name="btn_creditos">Creditos</string>
     <string name="mensaje_credit">Usuario estás usando la versión beta de booktook</string>
@@ -13,4 +14,14 @@
     <string name="hello_blank_fragment">Aqui irá el Feed</string>
     <string name="hello_blank_Libreria">Aquí irá Libreria</string>
     <string name="hello_blank_social">Aquí irá Social</string>
+    <string name="btn_inicio_sesion">Iniciar Sesion</string>
+    <string name="btn_registrar_usuario">¿Nuevo usuario?</string>
+    <string name="btn_registrar">Registrarse como nuevo usuario</string>
+    <string name="tematica_libros">¿Qué son las temáticas te interesan?</string>
+    <string name="fecha_nacimiento">Indicanos tu fecha de nacimiento.</string>
+    <string name="hint_correo">¿Qué correo quieres asociar?</string>
+    <string name="hint_usuario_registro">Propón un nombre chulo :)</string>
+    <string name="hint_apellidos">Apellido/s</string>
+    <string name="string_hint_nombre">¿Como te llamas?</string>
+
 </resources>

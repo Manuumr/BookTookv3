@@ -1,13 +1,9 @@
 package com.example.booktookv3
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import android.content.Intent
-import android.widget.Button
-import android.widget.EditText
+import com.example.booktookv3.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
@@ -16,15 +12,32 @@ class MainActivity : AppCompatActivity() {
         const val  EXTRA_USUARIO = "EXTRA_USUARIO" //define la clave una sola vez para evitar errores de escritura
     }
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        //Inicio de usuario
+        binding.btnIniciarSesion.setOnClickListener {
+            val nombre = binding.etUsuario.text?.toString()?.trim().orEmpty()
+            val nombreSeguro = if (nombre.isEmpty()) "Usuario" else nombre
+
+            //Acción pasar a HomeAactivity
+
+            val intent = Intent(this, HomeActivity::class.java).apply {
+                putExtra(EXTRA_USUARIO, nombreSeguro)
+            }
+            startActivity(intent)
+        }
+
 
         //1. Referencias a las vistas
 
-        val etUsuario = findViewById<EditText>(R.id.etUsuario) //enlaza codigo con activity_main.xml
-        val btnIrCredit = findViewById<Button>(R.id.btnIrCredit) //enlaza codigo con activity_main.xml
+        val etUsuario = binding.etUsuario //enlaza codigo con activity_main.xml
+        val btnIrCredit = binding.btnIrCredit //enlaza codigo con activity_main.xml
 
         //2. Logica del botón
 
@@ -44,11 +57,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        binding.btnRegistroUsuario.setOnClickListener{
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
     }
 }
