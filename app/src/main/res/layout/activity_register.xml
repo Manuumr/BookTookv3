@@ -36,6 +36,12 @@
                 android:hint="@string/hint_usuario_registro"/>
 
             <EditText
+                android:id="@+id/etContrasenaRegistrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_contrasena_registro"/>
+
+            <EditText
                 android:id="@+id/etCorreo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

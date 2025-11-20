@@ -23,5 +23,6 @@
     <string name="hint_usuario_registro">Propón un nombre chulo :)</string>
     <string name="hint_apellidos">Apellido/s</string>
     <string name="string_hint_nombre">¿Como te llamas?</string>
+    <string name="hint_contrasena_registro">Elige tu contraseña</string>
 
 </resources>
