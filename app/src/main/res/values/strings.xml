@@ -24,5 +24,7 @@
     <string name="hint_apellidos">Apellido/s</string>
     <string name="string_hint_nombre">¿Como te llamas?</string>
     <string name="hint_contrasena_registro">Elige tu contraseña</string>
+    <string name="desc_portada_libro">Portada libro</string>
+    <string name="titulo_biblioteca">Mi libreria</string>
 
 </resources>
