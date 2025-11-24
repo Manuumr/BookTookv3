@@ -26,5 +26,10 @@
     <string name="hint_contrasena_registro">Elige tu contraseña</string>
     <string name="desc_portada_libro">Portada libro</string>
     <string name="titulo_biblioteca">Mi libreria</string>
+    <string name="hint_buscar_mis_libros">Buscar entre mis libros</string>
+    <string name="filtro_todos">Todos</string>
+    <string name="filtro_leidos">Leídos</string>
+    <string name="filtro_leyendo">Leyendo</string>
+    <string name="filtro_quiero_leer">Quiero leer</string>
 
 </resources>
