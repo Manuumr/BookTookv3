@@ -17,6 +17,15 @@
     <fragment
         android:id="@+id/socialFragment"
         android:name="com.example.booktookv3.SocialFragment"
-        android:label="@string/nav_social" />
+        android:label="@string/nav_social" >
 
+        <argument
+            android:name="nombreUsuario"
+            app:argType="string"
+            android:defaultValue="Usuario" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_socialFragment"
+        app:destination="@+id/socialFragment" />
 </navigation>

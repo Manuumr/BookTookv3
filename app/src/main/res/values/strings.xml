@@ -31,5 +31,18 @@
     <string name="filtro_leidos">Leídos</string>
     <string name="filtro_leyendo">Leyendo</string>
     <string name="filtro_quiero_leer">Quiero leer</string>
+    <string name="social_card_anadir_amigos_titulo">Añadir amigos.</string>
+    <string name="social_card_anadir_amigos_desc">Busca, agrega o envía mensajes a otros lectores.</string>
+    <string name="social_card_privacidad_titulo">Ajustes de privacidad.</string>
+    <string name="social_card_privacidad_desc">Decide hasta dónde ven los demás sobre ti.</string>
+    <string name="social_card_gestion_titulo">Gestión de amigos.</string>
+    <string name="social_card_gestion_desc">Crea listas, bloquea o silencia a otros lectores.</string>
+    <string name="social_card_otros_titulo">Ajustes.</string>
+    <string name="social_card_otros_desc">Configura con plenitud tus prefrencias sobre BookTook</string>
+    <string name="social_idioma_label">"Cambiar idioma - "</string>
+    <string name="social_switch_en">EN</string>
+    <string name="social_switch_es">ES</string>
+    <string name="social_prompt_ayuda">Promp ayuda</string>
+    <string name="social_notificaciones_desc">ic_notifications_</string>
 
 </resources>

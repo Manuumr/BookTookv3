@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="social_ayudarapida_opciones">
+        <item>Ayuda sobre amigos</item>
+        <item>No encuentro un libro</item>
+        <item>Bloqueos y denuncias</item>
+        <item>Página dudas frecuentes</item>
+    </string-array>
+</resources>

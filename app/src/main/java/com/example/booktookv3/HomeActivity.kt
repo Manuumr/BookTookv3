@@ -18,18 +18,39 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // 1. Inicializamos el ViewBinding
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 1. Recuperamos el NavHostFragment
+        // 2. Recuperamos el NavHostFragment y el NavController
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-
-        // 2. Obtenemos el NavController
         val navController = navHostFragment.navController
 
-        // 3. Conectamos el BottomNavigation con el NavController
-        binding.bottomNav.setupWithNavController(navController)
+        // 3. Recuperamos el nombre de usuario que viene de MainActivity
+        val nombreUsuario = intent.getStringExtra(MainActivity.EXTRA_USUARIO) ?: "Usuario"
 
+        // 4. Gestionamos manualmente la navegación del BottomNavigation
+        binding.bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.feedFragment -> {
+                    navController.navigate(R.id.feedFragment)
+                    true
+                }
+                R.id.libraryFragment -> {
+                    navController.navigate(R.id.libraryFragment)
+                    true
+                }
+                R.id.socialFragment -> {
+                    // Creamos la acción global hacia SocialFragment
+                    val action = NavGraphDirections.actionGlobalSocialFragment()
+                    // Asignamos el argumento usando la propiedad generada por Safe Args
+                    action.nombreUsuario = nombreUsuario
+                    navController.navigate(action)
+                    true
+                }
+                else -> false
+            }
+        }
     }
 }
