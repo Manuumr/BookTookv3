@@ -1,13 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Encabezado de bienvenida -->
+
     <TextView
+        android:id="@+id/tvEmcabezadoFeed"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textStyle="bold"
+        android:textSize="22sp" />
 
-</FrameLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="8dp" />
+
+    <!-- Buscador en el feed -->
+    <EditText
+        android:id="@+id/etBuscadorFeed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/busqueda_feed"
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:padding="8dp"
+        android:background="@android:drawable/edit_text" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="20dp" />
+
+    <!-- tabla para las pestañas y viewpager para mostrar los fragments -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayoutFeed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="fixed"
+        app:tabGravity="fill" />
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPagerFeed"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+
+
+
+</LinearLayout>

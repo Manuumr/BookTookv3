@@ -44,5 +44,6 @@
     <string name="social_switch_es">ES</string>
     <string name="social_prompt_ayuda">Promp ayuda</string>
     <string name="social_notificaciones_desc">ic_notifications_</string>
+    <string name="busqueda_feed">¿Buscas actualidad sobre algo?</string>
 
 </resources>
