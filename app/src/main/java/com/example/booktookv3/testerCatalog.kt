@@ -10,7 +10,9 @@ object testerCatalog {
         val portadaResId: Int,
         val estado: EstadoLectura,
         val generoPrincipal: String,
-        val generoSecundario: String
+        val generoSecundario: String,
+        var esFavorito: Boolean = false,
+        var descripcion: String
     )
 
     enum class EstadoLectura{
@@ -30,7 +32,10 @@ object testerCatalog {
             portadaResId = R.drawable.it,
             estado = EstadoLectura.QUIERO_LEER,
             generoPrincipal = "Terror",
-            generoSecundario = "Suspense"
+            generoSecundario = "Suspense",
+            esFavorito = false,
+            descripcion = "En el pueblo de Derry, un grupo de niños se enfrenta a una entidad maligna que adopta la forma de sus peores miedos. Años después, ya adultos, deberán regresar para acabar con el terror que nunca desapareció del todo."
+
         ),
         Libro(
             titulo = "La mala costumbre",
@@ -41,7 +46,9 @@ object testerCatalog {
             portadaResId = R.drawable.la_mala_costumbre,
             estado = EstadoLectura.LEIDO,
             generoPrincipal = "Ficción contemporánea",
-            generoSecundario = "LGTBIQ+"
+            generoSecundario = "LGTBIQ+",
+            esFavorito = false,
+            descripcion = "Una novela íntima y poderosa sobre crecer siendo diferente en un barrio obrero de Madrid. A través de la identidad, el cuerpo y la memoria, la autora retrata la lucha por existir y nombrarse en un mundo que no siempre deja espacio."
         ),
         Libro(
             titulo = "Las malas",
@@ -52,7 +59,9 @@ object testerCatalog {
             portadaResId = R.drawable.las_malas,
             estado = EstadoLectura.LEIDO,
             generoPrincipal = "Ficción contemporánea",
-            generoSecundario = "LGTBIQ+"
+            generoSecundario = "LGTBIQ+",
+            esFavorito = false,
+            descripcion = "La historia de un grupo de travestis que sobreviven en los márgenes de la sociedad, mezclando crudeza, ternura y realismo mágico. Un relato feroz y poético sobre la amistad, la violencia y la resistencia."
         ),
         Libro(
             titulo = "Crepúsculo",
@@ -63,7 +72,9 @@ object testerCatalog {
             portadaResId = R.drawable.crepusculo,
             estado = EstadoLectura.LEIDO,
             generoPrincipal = "Romántica juvenil",
-            generoSecundario = "Fantasía"
+            generoSecundario = "Fantasía",
+            esFavorito = false,
+            descripcion = ""
         ),
         Libro(
             titulo = "Maldito karma",
@@ -74,7 +85,9 @@ object testerCatalog {
             portadaResId = R.drawable.maldito_karma,
             estado = EstadoLectura.QUIERO_LEER,
             generoPrincipal = "Comedia",
-            generoSecundario = "Ficción"
+            generoSecundario = "Ficción",
+            esFavorito = false,
+            descripcion = ""
         ),
         Libro(
             titulo = "Sin noticias de Gurb",
@@ -85,7 +98,9 @@ object testerCatalog {
             portadaResId = R.drawable.sin_noticias_de_gurb,
             estado = EstadoLectura.LEIDO,
             generoPrincipal = "Comedia",
-            generoSecundario = "Sátira"
+            generoSecundario = "Sátira",
+            esFavorito = false,
+            descripcion = ""
         ),
         Libro(
             titulo = "Rojo, blanco y sangre azul",
@@ -96,7 +111,9 @@ object testerCatalog {
             portadaResId = R.drawable.rojo_blanco_sangre_azul,
             estado = EstadoLectura.QUIERO_LEER,
             generoPrincipal = "Romance",
-            generoSecundario = "Romcom"
+            generoSecundario = "Romcom",
+            esFavorito = false,
+            descripcion = ""
         ),
         Libro(
             titulo = "Los pilares de la Tierra",
@@ -107,7 +124,9 @@ object testerCatalog {
             portadaResId = R.drawable.los_pilares_de_la_tierra,
             estado = EstadoLectura.QUIERO_LEER,
             generoPrincipal = "Novela histórica",
-            generoSecundario = "Ficción"
+            generoSecundario = "Ficción",
+            esFavorito = false,
+            descripcion = ""
         ),
         Libro(
             titulo = "La catedral del mar",
@@ -118,7 +137,9 @@ object testerCatalog {
             portadaResId = R.drawable.la_catedral_del_mar,
             estado = EstadoLectura.LEIDO,
             generoPrincipal = "Novela histórica",
-            generoSecundario = "Ficción"
+            generoSecundario = "Ficción",
+            esFavorito = false,
+            descripcion = ""
         )
     )
 

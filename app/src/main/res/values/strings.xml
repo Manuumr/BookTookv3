@@ -10,7 +10,6 @@
     <string name="nav_feed">feed</string>
     <string name="nav_social">Social</string>
     <string name="nav_library">Libreria</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Aqui irá el Feed</string>
     <string name="hello_blank_Libreria">Aquí irá Libreria</string>
     <string name="hello_blank_social">Aquí irá Social</string>
@@ -45,5 +44,10 @@
     <string name="social_prompt_ayuda">Promp ayuda</string>
     <string name="social_notificaciones_desc">ic_notifications_</string>
     <string name="busqueda_feed">¿Buscas actualidad sobre algo?</string>
+    <string name="desc_favorito">Marcar como favorito</string>
+    <string name="fav_vacio">No tienes favoritos</string>
+    <string name="fav_titulo">Tus libros favoritos</string>
+    <string name="ver_favoritos">favoritos</string>
+    <string name="detalle_portada_desc">detalle portada</string>
 
 </resources>

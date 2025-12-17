@@ -8,6 +8,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import com.example.booktookv3.databinding.FragmentLibraryBinding
 import androidx.recyclerview.widget.GridLayoutManager //permite mostrar los libros en forma de "estanteria" mediante una rejilla
+import androidx.navigation.fragment.findNavController
 
 class LibraryFragment : Fragment() {
 
@@ -50,6 +51,13 @@ class LibraryFragment : Fragment() {
         librosAdapter = LibrosAdapter(testerCatalog.librosDemo)
         binding.rvLibros.adapter = librosAdapter
 
+        librosAdapter.onLibroClick = { libroPulsado ->
+            val bundle = Bundle()
+            bundle.putString("isbn", libroPulsado.isbn)
+            findNavController().navigate(R.id.action_libraryFragment_to_detallesFragment, bundle)
+        }
+
+
         // Buscador de mis libros
         binding.etBuscarMisLibros.addTextChangedListener { text ->
             textoBusqueda = text?.toString().orEmpty()
@@ -72,6 +80,11 @@ class LibraryFragment : Fragment() {
         binding.btnFiltroQuieroLeer.setOnClickListener {
             filtroEstado = testerCatalog.EstadoLectura.QUIERO_LEER
             aplicarFiltros()
+        }
+
+        // Ir a Favoritos (FavItemFragment)
+        binding.btnVerFavoritos.setOnClickListener {
+            findNavController().navigate(R.id.action_libraryFragment_to_favItemFragment)
         }
 
         // Aplicamos filtros una primera vez (por si hay algo predefinido)

@@ -14,8 +14,7 @@ class CreditActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //coger el nombre que viene de MainActivity
-        val nombreUsuario = intent.getStringExtra(MainActivity.EXTRA_USUARIO) ?: "Usuario"
-
+        val nombreUsuario = intent.getStringExtra("EXTRA_USUARIO") ?: "Usuario"
         //Mostrar el mensaje personalizado
         binding.titulo.text = "$nombreUsuario estás usando la versión 1 de Booktook"
     }

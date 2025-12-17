@@ -1,65 +1,47 @@
 package com.example.booktookv3
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import android.content.Intent
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.setupWithNavController
 import com.example.booktookv3.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-
+/**
+ * MainActivity ahora es SOLO el contenedor de navegación.
+ * - No valida usuario/contraseña.
+ * - No lanza HomeActivity.
+ * - Muestra/Oculta la BottomNavigation según el fragment actual.
+ */
 class MainActivity : AppCompatActivity() {
-
-    companion object{
-        const val  EXTRA_USUARIO = "EXTRA_USUARIO" //define la clave una sola vez para evitar errores de escritura
-    }
 
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // 1) Inflamos el layout de la Activity (que ahora contiene NavHost + BottomNav)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Inicio de usuario
-        binding.btnIniciarSesion.setOnClickListener {
-            val nombre = binding.etUsuario.text?.toString()?.trim().orEmpty()
-            val nombreSeguro = if (nombre.isEmpty()) "Usuario" else nombre
+        // 2) Obtenemos el NavController desde el NavHostFragment
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        val navController = navHostFragment.navController
 
-            //Acción pasar a HomeAactivity
+        // 3) Referencia a la BottomNavigationView (evita depender del nombre generado por ViewBinding)
+        val bottomNav = binding.root.findViewById<BottomNavigationView>(R.id.bottom_nav)
 
-            val intent = Intent(this, HomeActivity::class.java).apply {
-                putExtra(EXTRA_USUARIO, nombreSeguro)
-            }
-            startActivity(intent)
-        }
+        // 4) Conectamos el BottomNavigationView con el NavController
+        //    (esto hace que al pulsar en la barra inferior navegue al fragment correspondiente)
+        bottomNav.setupWithNavController(navController)
 
-
-        //1. Referencias a las vistas
-
-        val etUsuario = binding.etUsuario //enlaza codigo con activity_main.xml
-        val btnIrCredit = binding.btnIrCredit //enlaza codigo con activity_main.xml
-
-        //2. Logica del botón
-
-        btnIrCredit.setOnClickListener{ //define qué pasa cuando pulsamos
-            //leer texto del usuario
-            val nombre = etUsuario.text?.toString()?.trim().orEmpty()
-
-            //pero si esta vacio, usamos este valor por defecto
-            val nombreSeguro = if (nombre.isEmpty()) "Usuario" else nombre
-
-            //Intent explicito para abrir CreditActivity
-            val intent = Intent(this, CreditActivity::class.java).apply {
-                putExtra(EXTRA_USUARIO, nombreSeguro)
-            }
-
-            //Lanza Credit Activity
-            startActivity(intent)
-        }
-
-        binding.btnRegistroUsuario.setOnClickListener{
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
+        // 4) Opción A: el BottomNav NO debe verse en LoginFragment
+        //    y SÍ debe verse en el resto.
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            bottomNav.visibility =
+                if (destination.id == R.id.loginFragment) View.GONE else View.VISIBLE
         }
     }
 }

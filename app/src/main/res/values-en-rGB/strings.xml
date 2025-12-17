@@ -1,2 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">BookTookv3</string>
+
+    <string name="hint_usuario">Username</string>
+    <string name="hint_contrasena">Password</string>
+    <string name="mensaje_bienvenida">Welcome to BookTook :)</string>
+
+    <string name="btn_creditos">Credits</string>
+    <string name="mensaje_credit">User, you are using the beta version of BookTook</string>
+    <string name="mensaje_descripcion">BookTook is a social network that combines a passion for books with making connections.</string>
+    <string name="btn_contacto">Contact developer</string>
+
+    <string name="nav_feed">Feed</string>
+    <string name="nav_social">Social</string>
+    <string name="nav_library">Library</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Feed content will appear here</string>
+    <string name="hello_blank_Libreria">Library content will appear here</string>
+    <string name="hello_blank_social">Social content will appear here</string>
+
+    <string name="btn_inicio_sesion">Log in</string>
+    <string name="btn_registrar_usuario">New user?</string>
+    <string name="btn_registrar">Register as a new user</string>
+
+    <string name="tematica_libros">What book genres are you interested in?</string>
+    <string name="fecha_nacimiento">Tell us your date of birth.</string>
+
+    <string name="hint_correo">Which email would you like to associate?</string>
+    <string name="hint_usuario_registro">Choose a cool username :)</string>
+    <string name="hint_apellidos">Last name(s)</string>
+    <string name="string_hint_nombre">What is your name?</string>
+    <string name="hint_contrasena_registro">Choose your password</string>
+
+    <string name="desc_portada_libro">Book cover</string>
+
+    <string name="titulo_biblioteca">My library</string>
+    <string name="hint_buscar_mis_libros">Search my books</string>
+
+    <string name="filtro_todos">All</string>
+    <string name="filtro_leidos">Read</string>
+    <string name="filtro_leyendo">Reading</string>
+    <string name="filtro_quiero_leer">Want to read</string>
+
+    <string name="social_card_anadir_amigos_titulo">Add friends.</string>
+    <string name="social_card_anadir_amigos_desc">Search, add or message other readers.</string>
+
+    <string name="social_card_privacidad_titulo">Privacy settings.</string>
+    <string name="social_card_privacidad_desc">Decide how much others can see about you.</string>
+
+    <string name="social_card_gestion_titulo">Friend management.</string>
+    <string name="social_card_gestion_desc">Create lists, block or mute other readers.</string>
+
+    <string name="social_card_otros_titulo">Settings.</string>
+    <string name="social_card_otros_desc">Fully configure your BookTook preferences.</string>
+
+    <string name="social_idioma_label">Change language - </string>
+    <string name="social_switch_en">EN</string>
+    <string name="social_switch_es">ES</string>
+
+    <string name="social_prompt_ayuda">Help options</string>
+    <string name="social_notificaciones_desc">Notifications icon</string>
+
+    <string name="busqueda_feed">Looking for something new?</string>
+
+    <string name="desc_favorito">Mark as favorite</string>
+    <string name="fav_vacio">You have no favorites</string>
+    <string name="fav_titulo">Your favorite books</string>
+    <string name="ver_favoritos">Favorites</string>
+
+    <string name="detalle_portada_desc">Book cover detail</string>
+</resources>

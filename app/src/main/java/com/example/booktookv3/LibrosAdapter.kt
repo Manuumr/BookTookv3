@@ -8,17 +8,18 @@ import com.example.booktookv3.databinding.ItemLibroBinding
 
 //Conectamos la con Adapter la lista de libros con el RecyclerView de Library fragment
 
-class LibrosAdapter (
+class LibrosAdapter(
+    private var libros: List<testerCatalog.Libro>) : RecyclerView.Adapter<LibrosAdapter.LibroViewHolder>() {
 
-    private var libros: List<testerCatalog.Libro>) : RecyclerView.Adapter<LibrosAdapter.LibroViewHolder> () {
+    var onLibroClick: ((testerCatalog.Libro) -> Unit)? = null
 
-        //ViewHolder representa el layout tarjeta de libro en la lista
-        inner class LibroViewHolder(val binding: ItemLibroBinding) : RecyclerView.ViewHolder(binding.root)
-        //ItemLibroBindgin es la clase generada automaticamente a partir del archivo item_libro.xml, sirve para acceder a las vistas.
+    //ViewHolder representa el layout tarjeta de libro en la lista
+    inner class LibroViewHolder(val binding: ItemLibroBinding) : RecyclerView.ViewHolder(binding.root)
+    //ItemLibroBindgin es la clase generada automaticamente a partir del archivo item_libro.xml, sirve para acceder a las vistas.
 
     //Crea las tarjetas necesarias
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewTypw: Int): LibroViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LibroViewHolder {
         val binding = ItemLibroBinding.inflate(
             LayoutInflater.from(parent.context), parent, false
         )
@@ -29,10 +30,25 @@ class LibrosAdapter (
 
     override fun onBindViewHolder(holder: LibroViewHolder, position: Int) {
         val libro = libros[position]
-        holder.binding.tvTituloLibro.text = libro.titulo
-        holder.binding.tvAutorLibro.text = libro.autor
-        holder.binding.ivPortada.setImageResource(libro.portadaResId)
+        val b = holder.binding
 
+        b.tvTituloLibro.text = libro.titulo
+        b.tvAutorLibro.text = libro.autor
+        b.ivPortada.setImageResource(libro.portadaResId)
+
+        // Pintamos la estrella según el estado actual
+        b.btnFavorito.setImageResource(
+            if (libro.esFavorito) R.drawable.ic_star else R.drawable.ic_star_border
+        )
+
+        // Al pulsar, alternamos favorito/no favorito y refrescamos SOLO esa tarjeta
+        b.btnFavorito.setOnClickListener {
+            libro.esFavorito = !libro.esFavorito
+            notifyItemChanged(holder.bindingAdapterPosition)
+        }
+        b.root.setOnClickListener {
+            onLibroClick?.invoke(libro)
+        }
     }
 
     //Indica cuantos elementos hay en la lista

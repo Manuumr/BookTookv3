@@ -1,34 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="4dp">
-    
+
     <!--  contenedor del libro con suelo fijo -->
-    
+
     <LinearLayout
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- portada del libro fijando la altura y apoyando al bottom -->
-
-        <LinearLayout
+        <!-- Portada del libro (con botón de favorito encima) -->
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="bottom">
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/ivPortada"
+            <!-- Contenedor para apoyar visualmente las portadas "en el suelo" -->
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:adjustViewBounds="true"
-                android:scaleType="fitCenter"
-                android:contentDescription="@string/desc_portada_libro" />
-        </LinearLayout>
+                android:gravity="bottom">
+
+                <ImageView
+                    android:id="@+id/ivPortada"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="@string/desc_portada_libro"
+                    tools:src="@drawable/ic_launcher_foreground" />
+            </LinearLayout>
+
+            <!-- Botón para marcar/desmarcar favorito -->
+
+            <ImageButton
+                android:id="@+id/btnFavorito"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="top|end"
+                android:layout_margin="6dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/desc_favorito"
+                android:src="@drawable/ic_star_border"
+                android:tint="@color/yellowFavs" />
+        </FrameLayout>
 
         <!-- Texto del titulo -->
 
@@ -51,6 +71,7 @@
             android:ellipsize="end"
             android:text="Autor"
             android:textSize="11sp" />
+
 
 
     </LinearLayout>
