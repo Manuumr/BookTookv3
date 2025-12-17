@@ -1,25 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.booktookv3.LoginFragment"
-        android:label="Login">
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
 
         <action
             android:id="@+id/action_loginFragment_to_feedFragment"
             app:destination="@id/feedFragment"
             app:popUpTo="@id/loginFragment"
             app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.booktookv3.RegisterFragment"
+        android:label="Registro"
+        tools:layout="@layout/fragment_register" />
 
     <fragment
         android:id="@+id/feedFragment"
         android:name="com.example.booktookv3.FeedFragment"
-        android:label="@string/nav_feed" >
+        android:label="@string/nav_feed"
+        tools:layout="@layout/fragment_feed">
+
         <action
             android:id="@+id/action_feedFragment_to_libraryFragment"
             app:destination="@id/libraryFragment" />
@@ -28,7 +42,8 @@
     <fragment
         android:id="@+id/libraryFragment"
         android:name="com.example.booktookv3.LibraryFragment"
-        android:label="@string/nav_library" >
+        android:label="@string/nav_library"
+        tools:layout="@layout/fragment_library">
 
         <action
             android:id="@+id/action_libraryFragment_to_socialFragment"
@@ -46,7 +61,8 @@
     <fragment
         android:id="@+id/detallesFragment"
         android:name="com.example.booktookv3.DetallesFragment"
-        android:label="Detalle libro">
+        android:label="Detalle libro"
+        tools:layout="@layout/fragment_detalles">
 
         <argument
             android:name="isbn"
@@ -56,7 +72,8 @@
     <fragment
         android:id="@+id/socialFragment"
         android:name="com.example.booktookv3.SocialFragment"
-        android:label="@string/nav_social" >
+        android:label="@string/nav_social"
+        tools:layout="@layout/fragment_social">
 
         <argument
             android:name="nombreUsuario"
@@ -64,14 +81,10 @@
             android:defaultValue="Usuario" />
     </fragment>
 
-    <action
-        android:id="@+id/action_global_socialFragment"
-        app:destination="@+id/socialFragment" />
-
     <fragment
         android:id="@+id/favItemFragment"
         android:name="com.example.booktookv3.FavItemFragment"
-        android:label="Favoritos">
+        android:label="Favoritos"
+        tools:layout="@layout/fragment_fav_item" />
 
-    </fragment>
 </navigation>

@@ -11,7 +11,6 @@ import com.example.booktookv3.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
-    // ViewBinding del fragment
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
@@ -46,11 +45,20 @@ class LoginFragment : Fragment() {
             val contrasenaCorrecta = usuariosValidos[usuario]
 
             if (contrasenaCorrecta == contrasena) {
-                // Navegamos al Feed (pantalla principal)
-                findNavController().navigate(R.id.feedFragment)
+                // Navegamos usando la ACTION del nav_graph (con popUpTo para no volver al login)
+                findNavController().navigate(R.id.action_loginFragment_to_feedFragment)
             } else {
                 Toast.makeText(requireContext(), "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        binding.btnRegistroUsuario.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+
+        // Botón "Créditos" -> sigue siendo Activity (se mantiene)
+        binding.btnIrCredit.setOnClickListener {
+
         }
     }
 

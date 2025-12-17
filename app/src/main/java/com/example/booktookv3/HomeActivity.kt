@@ -26,10 +26,13 @@ class HomeActivity : AppCompatActivity() {
         // 3) Conectamos la BottomNavigation con el NavController (sin navegación manual)
         binding.bottomNav.setupWithNavController(navController)
 
-        // 4) Ocultar la barra inferior en el login
+        // 4) Ocultar la barra inferior en el login y en register
         navController.addOnDestinationChangedListener { _, destination, _ ->
             binding.bottomNav.visibility =
-                if (destination.id == R.id.loginFragment) View.GONE else View.VISIBLE
+                if (destination.id == R.id.loginFragment || destination.id == R.id.registerFragment)
+                    View.GONE
+                else
+                    View.VISIBLE
         }
     }
 }
