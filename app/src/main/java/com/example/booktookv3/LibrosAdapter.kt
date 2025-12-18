@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.booktookv3.databinding.ItemLibroBinding
 
 
-//Conectamos la con Adapter la lista de libros con el RecyclerView de Library fragment
+//Conectamos  con Adapter la lista de libros con el RecyclerView de Library fragment
 
 class LibrosAdapter(
     private var libros: List<testerCatalog.Libro>) : RecyclerView.Adapter<LibrosAdapter.LibroViewHolder>() {

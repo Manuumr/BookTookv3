@@ -29,7 +29,7 @@ class FeedFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        binding.tvEmcabezadoFeed.text = "Bienvenido, Manu" // más adelante: Bienvenido, {nombreUsuario}
+        binding.tvEmcabezadoFeed.text = "Bienvenido!" // más adelante: Bienvenido, {nombreUsuario}
 
         //  Configurar el ViewPager2 con el adapter
         val adapter = FeedPagerAdapter(this)

@@ -33,7 +33,7 @@ class SocialFragment : Fragment() {
         val nombre = args.nombreUsuario  // nunca será null porque tiene defaultValue = "Usuario"
 
         // 2.  textos en los TextView
-        binding.tvSaludoSocial.text = "Hola $nombre"
+        binding.tvSaludoSocial.text = "Hola"
         binding.tvSubtituloSocial.text = "Bienvenido a tu espacio! :)"
     }
 

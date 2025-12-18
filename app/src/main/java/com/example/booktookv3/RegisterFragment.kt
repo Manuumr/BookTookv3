@@ -99,6 +99,7 @@ class RegisterFragment : Fragment() {
         findNavController().popBackStack()
     }
 
+    //Requisitos de la contraseña
     private fun esContrasenaValida(contrasena: String): Boolean {
         if (contrasena.length < 8) return false
         val tieneMayuscula = contrasena.any { it.isUpperCase() }
