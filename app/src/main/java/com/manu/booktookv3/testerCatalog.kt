@@ -1,4 +1,4 @@
-package com.example.booktookv3
+package com.manu.booktookv3
 
 object testerCatalog {
     data class Libro(
@@ -8,7 +8,7 @@ object testerCatalog {
         val isbn: String,
         val anioPublicacion: Int,
         val portadaResId: Int,
-        val estado: EstadoLectura,
+        var estado: EstadoLectura,
         val generoPrincipal: String,
         val generoSecundario: String,
         var esFavorito: Boolean = false,

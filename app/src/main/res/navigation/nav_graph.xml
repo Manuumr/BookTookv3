@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.booktookv3.LoginFragment"
+        android:name="com.manu.booktookv3.LoginFragment"
         android:label="Login"
         tools:layout="@layout/fragment_login">
 
@@ -24,13 +24,20 @@
 
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.booktookv3.RegisterFragment"
+        android:name="com.manu.booktookv3.RegisterFragment"
         android:label="Registro"
-        tools:layout="@layout/fragment_register" />
+        tools:layout="@layout/fragment_register">
+
+        <action
+            android:id="@+id/action_registerFragment_to_feedFragment"
+            app:destination="@id/feedFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/feedFragment"
-        android:name="com.example.booktookv3.FeedFragment"
+        android:name="com.manu.booktookv3.FeedFragment"
         android:label="@string/nav_feed"
         tools:layout="@layout/fragment_feed">
 
@@ -41,7 +48,7 @@
 
     <fragment
         android:id="@+id/libraryFragment"
-        android:name="com.example.booktookv3.LibraryFragment"
+        android:name="com.manu.booktookv3.LibraryFragment"
         android:label="@string/nav_library"
         tools:layout="@layout/fragment_library">
 
@@ -58,20 +65,29 @@
             app:destination="@id/detallesFragment" />
     </fragment>
 
+    <action
+        android:id="@+id/action_global_to_detallesFragment"
+        app:destination="@id/detallesFragment" />
+
     <fragment
         android:id="@+id/detallesFragment"
-        android:name="com.example.booktookv3.DetallesFragment"
+        android:name="com.manu.booktookv3.DetallesFragment"
         android:label="Detalle libro"
         tools:layout="@layout/fragment_detalles">
 
         <argument
-            android:name="isbn"
+            android:name="volumeId"
             app:argType="string" />
+
+        <argument
+            android:name="inLibrary"
+            app:argType="boolean"
+            android:defaultValue="false" />
     </fragment>
 
     <fragment
         android:id="@+id/socialFragment"
-        android:name="com.example.booktookv3.SocialFragment"
+        android:name="com.manu.booktookv3.SocialFragment"
         android:label="@string/nav_social"
         tools:layout="@layout/fragment_social">
 
@@ -79,11 +95,99 @@
             android:name="nombreUsuario"
             app:argType="string"
             android:defaultValue="Usuario" />
+
+        <action
+            android:id="@+id/action_socialFragment_to_buscarUsuariosFragment"
+            app:destination="@id/buscarUsuariosFragment" />
+
+        <action
+            android:id="@+id/action_socialFragment_to_gestionAmigosFragment"
+            app:destination="@id/gestionAmigosFragment" />
+
+        <action
+            android:id="@+id/action_socialFragment_to_listaConversacionesFragment"
+            app:destination="@id/listaConversacionesFragment" />
+
+        <action
+            android:id="@+id/action_socialFragment_to_editarGustosFragment"
+            app:destination="@id/editarGustosFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editarGustosFragment"
+        android:name="com.manu.booktookv3.EditarGustosFragment"
+        android:label="@string/editar_gustos_titulo"
+        tools:layout="@layout/fragment_editar_gustos" />
+
+    <fragment
+        android:id="@+id/listaConversacionesFragment"
+        android:name="com.manu.booktookv3.ListaConversacionesFragment"
+        android:label="@string/mensajes_titulo"
+        tools:layout="@layout/fragment_lista_conversaciones">
+
+        <action
+            android:id="@+id/action_listaConversacionesFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/buscarUsuariosFragment"
+        android:name="com.manu.booktookv3.BuscarUsuariosFragment"
+        android:label="@string/buscar_usuarios_titulo"
+        tools:layout="@layout/fragment_buscar_usuarios" />
+
+    <fragment
+        android:id="@+id/gestionAmigosFragment"
+        android:name="com.manu.booktookv3.GestionAmigosFragment"
+        android:label="@string/gestion_amigos_titulo"
+        tools:layout="@layout/fragment_gestion_amigos">
+
+        <action
+            android:id="@+id/action_gestionAmigosFragment_to_perfilAmigoFragment"
+            app:destination="@id/perfilAmigoFragment" />
+
+        <action
+            android:id="@+id/action_gestionAmigosFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/perfilAmigoFragment"
+        android:name="com.manu.booktookv3.PerfilAmigoFragment"
+        android:label="@string/perfil_amigo_titulo"
+        tools:layout="@layout/fragment_perfil_amigo">
+
+        <argument
+            android:name="friendUid"
+            app:argType="string" />
+
+        <argument
+            android:name="friendNombreUsuario"
+            app:argType="string" />
+
+        <action
+            android:id="@+id/action_perfilAmigoFragment_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.manu.booktookv3.ChatFragment"
+        android:label="@string/chat_titulo"
+        tools:layout="@layout/fragment_chat">
+
+        <argument
+            android:name="friendUid"
+            app:argType="string" />
+
+        <argument
+            android:name="friendNombreUsuario"
+            app:argType="string" />
     </fragment>
 
     <fragment
         android:id="@+id/favItemFragment"
-        android:name="com.example.booktookv3.FavItemFragment"
+        android:name="com.manu.booktookv3.FavItemFragment"
         android:label="Favoritos"
         tools:layout="@layout/fragment_fav_item" />
 

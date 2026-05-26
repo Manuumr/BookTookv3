@@ -6,5 +6,16 @@
         <item>No encuentro un libro</item>
         <item>Bloqueos y denuncias</item>
         <item>Página dudas frecuentes</item>
+        <item>Cerrar sesión</item>
+    </string-array>
+
+    <string-array name="generos_descubrir">
+        <item>Todos</item>
+        <item>Terror</item>
+        <item>Ficción contemporánea</item>
+        <item>Romance</item>
+        <item>Comedia</item>
+        <item>Novela histórica</item>
+        <item>Romántica juvenil</item>
     </string-array>
 </resources>

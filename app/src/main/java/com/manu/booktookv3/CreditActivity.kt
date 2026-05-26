@@ -1,8 +1,8 @@
-package com.example.booktookv3
+package com.manu.booktookv3
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.booktookv3.databinding.ActivityCreditBinding
+import com.manu.booktookv3.databinding.ActivityCreditBinding
 
 class CreditActivity : AppCompatActivity() {
 

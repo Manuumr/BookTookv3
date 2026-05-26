@@ -1,4 +1,4 @@
-package com.example.booktookv3
+package com.manu.booktookv3
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

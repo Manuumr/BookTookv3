@@ -10,74 +10,149 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- Título principal -->
-        <TextView
-            android:id="@+id/tvTituloBiblioteca"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/titulo_biblioteca"
-            android:textStyle="bold"
-            android:textSize="20sp" />
-
-        <!-- Buscador sobre MIS libros -->
-        <EditText
-            android:id="@+id/etBuscarMisLibros"
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabBiblioteca"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:hint="@string/hint_buscar_mis_libros"
-            android:inputType="text" />
+            android:background="@drawable/bg_tab_capsule"
+            app:tabBackground="@drawable/tab_capsule_selector"
+            app:tabGravity="fill"
+            app:tabIndicatorHeight="0dp"
+            app:tabMode="fixed"
+            app:tabRippleColor="@android:color/transparent"
+            app:tabSelectedTextColor="@android:color/white"
+            app:tabTextColor="@color/tab_capsule_text" />
 
-        <!-- Filtros por estado de lectura -->
+        <!-- Mi biblioteca -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btnFiltroTodos"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/filtro_todos" />
-
-            <Button
-                android:id="@+id/btnFiltroLeidos"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_weight="1"
-                android:text="@string/filtro_leidos" />
-
-            <Button
-                android:id="@+id/btnFiltroLeyendo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_weight="1"
-                android:text="@string/filtro_leyendo" />
-
-            <Button
-                android:id="@+id/btnFiltroQuieroLeer"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_weight="1"
-                android:text="@string/filtro_quiero_leer" />
-        </LinearLayout>
-
-        <!-- lista de libros rellenada para el Adapter -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvLibros"
+            android:id="@+id/panelMiBiblioteca"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="visible">
 
+            <EditText
+                android:id="@+id/etBuscarMisLibros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/hint_buscar_mis_libros"
+                android:inputType="text" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnFiltroTodos"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/filtro_todos" />
+
+                    <Button
+                        android:id="@+id/btnFiltroLeidos"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/filtro_leidos" />
+
+                    <Button
+                        android:id="@+id/btnFiltroLeyendo"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/filtro_leyendo" />
+
+                    <Button
+                        android:id="@+id/btnFiltroQuieroLeer"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="@string/filtro_quiero_leer" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/tvMiBibliotecaVacia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="24dp"
+                android:text="@string/mi_biblioteca_vacia"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMiBiblioteca"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <!-- La gran Biblioteca -->
+        <LinearLayout
+            android:id="@+id/panelGranBiblioteca"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/etBuscarGranBiblioteca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="@string/hint_buscar_gran_biblioteca"
+                android:imeOptions="actionSearch"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/tvGranBibliotecaAyuda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/gran_biblioteca_ayuda"
+                android:textSize="12sp" />
+
+            <ProgressBar
+                android:id="@+id/progressGranBiblioteca"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvGranBibliotecaVacia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="24dp"
+                android:text="@string/gran_biblioteca_vacia"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvGranBiblioteca"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1" />
+        </LinearLayout>
     </LinearLayout>
 
-    <!-- Botón flotante de Favoritos (circular) -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnVerFavoritos"
         android:layout_width="wrap_content"
@@ -85,8 +160,8 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="20dp"
         android:contentDescription="@string/ver_favoritos"
-        app:srcCompat="@drawable/ic_star_24"
         app:backgroundTint="@android:color/white"
+        app:srcCompat="@drawable/ic_star_24"
         app:tint="@color/yellowFavs" />
 
 </FrameLayout>

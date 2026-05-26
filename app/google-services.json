@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "215954879007",
+    "project_id": "booktookapp",
+    "storage_bucket": "booktookapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:215954879007:android:d0caee8aab02cb09e61b2a",
+        "android_client_info": {
+          "package_name": "com.manu.booktookv3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtzFyZE88cY-7Z6jCSC12ejkhri65Mk6w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

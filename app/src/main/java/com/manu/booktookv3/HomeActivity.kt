@@ -1,11 +1,14 @@
-package com.example.booktookv3
+package com.manu.booktookv3
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.booktookv3.databinding.ActivityHomeBinding
+import com.google.firebase.auth.FirebaseAuth
+import com.manu.booktookv3.data.BookRepository
+import com.manu.booktookv3.databinding.ActivityHomeBinding
+import com.manu.booktookv3.ui.NotificationBadgeHelper
 
 class HomeActivity : AppCompatActivity() {
 
@@ -13,26 +16,43 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // 1) ViewBinding: conecta esta activity con activity_home.xml
+        BookRepository.init(applicationContext)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 2) NavController: es el "cerebro" que mueve los fragments del nav_graph
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
-        // 3) Conectamos la BottomNavigation con el NavController (sin navegación manual)
         binding.bottomNav.setupWithNavController(navController)
 
-        // 4) Ocultar la barra inferior en el login y en register
         navController.addOnDestinationChangedListener { _, destination, _ ->
             binding.bottomNav.visibility =
                 if (destination.id == R.id.loginFragment || destination.id == R.id.registerFragment)
                     View.GONE
                 else
                     View.VISIBLE
+            if (destination.id != R.id.loginFragment && destination.id != R.id.registerFragment) {
+                actualizarBadgeSocial()
+            }
+        }
+
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            BookRepository.loadUserData { actualizarBadgeSocial() }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (FirebaseAuth.getInstance().currentUser != null) {
+            actualizarBadgeSocial()
+        }
+    }
+
+    fun actualizarBadgeSocial() {
+        if (!::binding.isInitialized) return
+        BookRepository.loadSocialNotificationCounts { counts ->
+            NotificationBadgeHelper.applyToBottomNav(binding.bottomNav, counts.total)
         }
     }
 }

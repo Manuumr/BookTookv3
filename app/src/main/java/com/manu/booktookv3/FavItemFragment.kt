@@ -1,16 +1,17 @@
-package com.example.booktookv3
+package com.manu.booktookv3
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import com.example.booktookv3.databinding.FragmentFavItemBinding
+import androidx.navigation.fragment.findNavController
+import com.manu.booktookv3.data.BookRepository
+import com.manu.booktookv3.databinding.FragmentFavItemBinding
+import com.manu.booktookv3.ui.BookGridLayoutHelper
 
 class FavItemFragment : Fragment() {
 
-    // ViewBinding en Fragment: se usa nullable para evitar fugas de memoria
     private var _binding: FragmentFavItemBinding? = null
     private val binding get() = _binding!!
 
@@ -28,40 +29,39 @@ class FavItemFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1) RecyclerView en formato grid (3 columnas, como en Library)
-        binding.rvFavoritos.layoutManager = GridLayoutManager(requireContext(), 3)
-
-        // 2) Creamos el adapter con una lista inicial vacía
-        adapter = LibrosAdapter(mutableListOf())
+        BookGridLayoutHelper.applyGrid(binding.rvFavoritos)
+        adapter = LibrosAdapter(showFavorito = true)
         binding.rvFavoritos.adapter = adapter
 
-        // 3) Cargamos solo los libros marcados como favoritos
+        adapter.onLibroClick = { libro ->
+            val bundle = Bundle().apply {
+                putString("volumeId", libro.volumeId)
+                putBoolean("inLibrary", true)
+            }
+            findNavController().navigate(R.id.action_global_to_detallesFragment, bundle)
+        }
+        adapter.onFavoritoChanged = { volumeId, esFavorito ->
+            BookRepository.updateFavorito(volumeId, esFavorito)
+        }
+
         cargarFavoritos()
     }
 
     private fun cargarFavoritos() {
-        val favoritos = testerCatalog.librosDemo.filter { it.esFavorito }
-
+        val favoritos = BookRepository.getFavoritos()
         if (favoritos.isEmpty()) {
-            // No hay favoritos: mostramos mensaje y ocultamos la lista
             binding.tvVacioFavoritos.visibility = View.VISIBLE
             binding.rvFavoritos.visibility = View.GONE
         } else {
-            // Hay favoritos: ocultamos mensaje y mostramos la lista
             binding.tvVacioFavoritos.visibility = View.GONE
             binding.rvFavoritos.visibility = View.VISIBLE
-
-            // Actualizamos la lista del adapter
             adapter.updateLibros(favoritos)
         }
     }
 
     override fun onResume() {
         super.onResume()
-        // Refrescamos la lista al retomar el fragment.
-        if (this::adapter.isInitialized) {
-            cargarFavoritos()
-        }
+        if (this::adapter.isInitialized) cargarFavoritos()
     }
 
     override fun onDestroyView() {

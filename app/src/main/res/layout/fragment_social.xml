@@ -205,9 +205,9 @@
 
                 </androidx.cardview.widget.CardView>
 
-                <!-- Card: Otros ajustes -->
+                <!-- Card: Mensajes -->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/cardOtrosAjustes"
+                    android:id="@+id/cardMensajes"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -216,28 +216,45 @@
                     app:cardCornerRadius="16dp"
                     app:cardElevation="4dp">
 
-                    <LinearLayout
+                    <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:padding="12dp">
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:padding="12dp">
+
+                            <TextView
+                                android:id="@+id/tvTituloCardMensajes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/social_card_mensajes_titulo"
+                                android:textStyle="bold"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/tvDescCardMensajes"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="@string/social_card_mensajes_desc"
+                                android:textSize="12sp" />
+                        </LinearLayout>
 
                         <TextView
-                            android:id="@+id/tvTituloCardOtros"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/social_card_otros_titulo"
-                            android:textStyle="bold"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/tvDescCardOtros"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="4dp"
-                            android:text="@string/social_card_otros_desc"
-                            android:textSize="12sp" />
-                    </LinearLayout>
+                            android:id="@+id/tvBadgeMensajesCard"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="top|end"
+                            android:layout_margin="8dp"
+                            android:background="@drawable/bg_badge_notificacion"
+                            android:gravity="center"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp"
+                            android:visibility="gone" />
+                    </FrameLayout>
 
                 </androidx.cardview.widget.CardView>
 
@@ -248,6 +265,30 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="24dp" />
+
+        <!-- Actividad de amigos -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/actividad_amigos_titulo"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvActividadSocial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/tvActividadVacia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/actividad_vacia"
+            android:visibility="gone" />
 
         <!-- SWITCH IDIOMA -->
         <LinearLayout

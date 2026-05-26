@@ -2,79 +2,75 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_margin="@dimen/book_grid_item_margin"
+    android:clipChildren="false"
+    android:clipToPadding="false"
     app:cardCornerRadius="12dp"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
 
-    <!--  contenedor del libro con suelo fijo -->
-
-    <LinearLayout
-        android:layout_width="120dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingBottom="6dp">
 
-        <!-- Portada del libro (con botón de favorito encima) -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/ivPortada"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:contentDescription="@string/desc_portada_libro"
+            android:scaleType="fitCenter"
+            app:layout_constraintDimensionRatio="2:3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_launcher_foreground" />
 
-            <!-- Contenedor para apoyar visualmente las portadas "en el suelo" -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="bottom">
-
-                <ImageView
-                    android:id="@+id/ivPortada"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:contentDescription="@string/desc_portada_libro"
-                    tools:src="@drawable/ic_launcher_foreground" />
-            </LinearLayout>
-
-            <!-- Botón para marcar/desmarcar favorito -->
-
-            <ImageButton
-                android:id="@+id/btnFavorito"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_gravity="top|end"
-                android:layout_margin="6dp"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/desc_favorito"
-                android:src="@drawable/ic_star_border"
-                android:tint="@color/yellowFavs" />
-        </FrameLayout>
-
-        <!-- Texto del titulo -->
+        <ImageButton
+            android:id="@+id/btnFavorito"
+            android:layout_width="@dimen/book_fav_size"
+            android:layout_height="@dimen/book_fav_size"
+            android:layout_margin="@dimen/book_fav_margin"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/desc_favorito"
+            android:elevation="6dp"
+            android:padding="2dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_star_border"
+            app:layout_constraintEnd_toEndOf="@id/ivPortada"
+            app:layout_constraintTop_toTopOf="@id/ivPortada"
+            app:tint="@color/yellowFavs" />
 
         <TextView
             android:id="@+id/tvTituloLibro"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:maxLines="2"
             android:ellipsize="end"
-            android:text="Título del libro"
+            android:maxLines="2"
+            android:textSize="12sp"
             android:textStyle="bold"
-            android:textSize="12sp" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivPortada"
+            tools:text="Título del libro" />
 
         <TextView
             android:id="@+id/tvAutorLibro"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:maxLines="1"
             android:ellipsize="end"
-            android:text="Autor"
-            android:textSize="11sp" />
+            android:maxLines="1"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTituloLibro"
+            tools:text="Autor" />
 
-
-
-    </LinearLayout>
-    
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

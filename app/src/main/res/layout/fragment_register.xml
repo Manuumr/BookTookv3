@@ -33,13 +33,7 @@
                 android:id="@+id/etUsuarioRegistrar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_usuario_registro"/>
-
-            <EditText
-                android:id="@+id/etContrasenaRegistrar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/hint_contrasena_registro"/>
+                android:hint="Nombre de usuario"/>
 
             <EditText
                 android:id="@+id/etCorreo"
@@ -47,6 +41,15 @@
                 android:layout_height="wrap_content"
                 android:hint="@string/hint_correo"
                 android:inputType="textEmailAddress"/>
+
+            <EditText
+                android:id="@+id/etContrasenaRegistrar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_contrasena_registro"
+                android:inputType="textPassword" />
+
+
 
             <EditText
                 android:id="@+id/etFechaNacimiento"
@@ -61,35 +64,11 @@
                 android:layout_height="wrap_content"
                 android:text="@string/tematica_libros" />
 
-            <CheckBox
-                android:id="@+id/cbComedia"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/layoutGustos"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Comedia"/>
-
-            <CheckBox
-                android:id="@+id/cbTerror"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Terror" />
-
-            <CheckBox
-                android:id="@+id/cbRomance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Romance" />
-
-            <CheckBox
-                android:id="@+id/cbLGTBIQPlus"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="LGTBIQ+" />
-
-            <CheckBox
-                android:id="@+id/cbNovelaHistoria"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Novela histórica" />
+                android:orientation="vertical" />
 
             <Button
                 android:id="@+id/btnRegistrar"

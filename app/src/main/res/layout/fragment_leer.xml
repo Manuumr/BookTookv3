@@ -1,46 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:fillViewport="true">
 
-    <!-- Tiempo del cronómetro -->
-    <TextView
-        android:id="@+id/tvTiempoLectura"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="00:00:00"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="24dp" />
-
-    <!-- Botones del cronómetro -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <Button
-            android:id="@+id/btnIniciar"
-            android:layout_width="wrap_content"
+        <!-- Título de la pantalla -->
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Iniciar" />
+            android:text="Tiempo de lectura"
+            android:textSize="26sp"
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnPausar"
-            android:layout_width="wrap_content"
+        <!-- Descripción breve -->
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pausar"
-            android:layout_marginStart="8dp" />
+            android:layout_marginTop="4dp"
+            android:text="Selecciona un libro, mide tu sesión y guarda tu progreso."
+            android:textSize="14sp" />
 
+        <!-- Selector de libro -->
+        <Spinner
+            android:id="@+id/spLibroLectura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp" />
+
+        <!-- Tiempo del cronómetro -->
+        <TextView
+            android:id="@+id/tvTiempoLectura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:gravity="center"
+            android:text="00:00:00"
+            android:textSize="42sp"
+            android:textStyle="bold" />
+
+        <!-- Estado actual -->
+        <TextView
+            android:id="@+id/tvEstadoLectura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="Nueva lectura preparada"
+            android:textSize="14sp" />
+
+        <!-- Botones principales -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnIniciar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Iniciar" />
+
+            <Button
+                android:id="@+id/btnPausar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Pausar" />
+
+            <Button
+                android:id="@+id/btnGuardarLectura"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Guardar" />
+        </LinearLayout>
+
+        <!-- Botón para empezar otra lectura desde cero -->
         <Button
             android:id="@+id/btnReset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reset"
-            android:layout_marginStart="8dp" />
-    </LinearLayout>
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:text="Nueva lectura" />
 
-</LinearLayout>
+        <!-- Título del registro -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Registro de lectura"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <!-- Aquí se irán añadiendo las sesiones guardadas -->
+        <LinearLayout
+            android:id="@+id/layoutRegistroLectura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+</ScrollView>

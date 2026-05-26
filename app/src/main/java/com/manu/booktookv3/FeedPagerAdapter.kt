@@ -1,4 +1,4 @@
-package com.example.booktookv3
+package com.manu.booktookv3
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter

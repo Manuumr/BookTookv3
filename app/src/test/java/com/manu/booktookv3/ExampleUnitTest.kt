@@ -1,4 +1,4 @@
-package com.example.booktookv3
+package com.manu.booktookv3
 
 import org.junit.Test
 

@@ -2,13 +2,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="12dp">
 
     <TextView
-        android:id="@+id/tvNovedades"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/novedades_titulo"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvNovedadesSubtitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textSize="13sp" />
+
+    <ProgressBar
+        android:id="@+id/progressNovedades"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aquí irán las Novedades"
-        android:textSize="18sp" />
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/listaLibros"
+        layout="@layout/fragment_book_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="8dp" />
+
 </LinearLayout>

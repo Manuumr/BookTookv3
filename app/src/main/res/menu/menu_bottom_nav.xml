@@ -3,17 +3,17 @@
 
     <item
         android:id="@+id/feedFragment"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_nav_feed"
         android:title="@string/nav_feed"/>
 
     <item
         android:id="@+id/libraryFragment"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_nav_library"
         android:title="@string/nav_library"/>
 
     <item
         android:id="@+id/socialFragment"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_nav_social"
         android:title="@string/nav_social"/>
 
 
